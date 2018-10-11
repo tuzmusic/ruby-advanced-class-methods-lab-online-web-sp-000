@@ -45,4 +45,12 @@ class Song
     }
   end
 
+  def new_from_filename(filename)
+    components = filename.split(" - ")
+    title = components.last.chomp('.mp3')
+    song = self.new_by_name(title)
+    song.artist = components.first
+    song
+  end
+
 end
